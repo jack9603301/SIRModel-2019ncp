@@ -112,7 +112,6 @@ if __name__ == "__main__":
                 Y[1] = b * V[0] * V[1] - gamma * V[1]
                 Y[2] = gamma * V[1]
                 return Y
-
 #            # 数值解模型方程
             INPUT = [S, I0, 0.0]
             RES = spi.odeint(diff_eqs_2, INPUT, t_range)
