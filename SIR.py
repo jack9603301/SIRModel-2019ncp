@@ -9,12 +9,12 @@ import matplotlib.pyplot as pl
 import pandas as pd
 
 
-beta = 3.6e-8
-gamma = 0.07142
+beta = 2e-6
+gamma = 0.02
 TS = 1.0
 ND = 60.0
-S0 = 10000000
-I0 = 500
+S0 = 100000
+I0 = 5000
 INPUT = [S0, I0, 0.0]
 
 
@@ -50,6 +50,9 @@ if __name__ == "__main__":
     pl.ylabel("Infectious Susceptibles")
     pl.savefig("result.png")
 
+    print("begin Infectious=")
+    print(RES[:, 1])
+
     # 读取数据
     data = pd.read_csv("data.csv", index_col=["date"])
     data["现有感染者"] = data["感染者"] - data["死亡"] - data["治愈"]
@@ -69,6 +72,7 @@ if __name__ == "__main__":
     pl.ylabel("Infectious Susceptibles")
     pl.savefig("realdata.png")
 
+'''
     # # 计算β值，用确诊病例除以密切接触者人数
     gammaguess = (data["治愈"]+data["死亡"])/data["感染者"]
     print(gammaguess)
@@ -120,7 +124,7 @@ if __name__ == "__main__":
                 bestRes = RES
                 print("S0=%d beta=%f minErr=%f" % (S, b, errsum))
 
-    print("S0 = %d β = %f" % (minS0, minBeta))
+    print("S0 = %d β = %f" % (minS0, minBeta))'''
 
 print("预测最大感染人数:%d 位置:%d" % (RES[:, 1].max(), np.argmax(RES[:, 1])))
 # 将预测值与真实值画到一起
