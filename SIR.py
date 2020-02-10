@@ -125,6 +125,7 @@ if __name__ == "__main__":
 
     print("S0 = %d β = %f" % (minS0, minBeta))
 
+
 print("预测最大感染人数:%d 位置:%d" % (RES[:, 1].max(), np.argmax(RES[:, 1])))
 # 将预测值与真实值画到一起
 fig = pl.figure(figsize=(70, 70))
