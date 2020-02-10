@@ -72,7 +72,6 @@ if __name__ == "__main__":
     pl.ylabel("Infectious Susceptibles")
     pl.savefig("realdata.png")
 
-'''
     # # 计算β值，用确诊病例除以密切接触者人数
     gammaguess = (data["治愈"]+data["死亡"])/data["感染者"]
     print(gammaguess)
@@ -124,7 +123,7 @@ if __name__ == "__main__":
                 bestRes = RES
                 print("S0=%d beta=%f minErr=%f" % (S, b, errsum))
 
-    print("S0 = %d β = %f" % (minS0, minBeta))'''
+    print("S0 = %d β = %f" % (minS0, minBeta))
 
 print("预测最大感染人数:%d 位置:%d" % (RES[:, 1].max(), np.argmax(RES[:, 1])))
 # 将预测值与真实值画到一起
