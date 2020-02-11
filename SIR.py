@@ -65,15 +65,18 @@ if __name__ == "__main__":
     pl.plot(data["治愈"], "-g", label="healed")
     pl.plot(data["感染者"], "-r", label="infectious")
     pl.legend(loc=0)
-    pl.title("real data(begin with 2020-1-10)")
+    pl.title("real data(begin with 2020-01-22)")
     pl.xlabel("Index")
     pl.ylabel("Infectious")
     pl.savefig("realdata.png")
-'''
+
     # # 计算β值，用确诊病例除以密切接触者人数
     gammaguess = (data["治愈"]+data["死亡"])/data["感染者"]
+    print("gammaguess")
     print(gammaguess)
+
     gamma = gammaguess[-7:-1].mean()
+    print("gamma")
     print(gamma)
     beta = gamma*2.0
     print("beta=")
@@ -122,7 +125,7 @@ if __name__ == "__main__":
                 print("S0=%d beta=%f minErr=%f" % (S, b, errsum))
 
 print("S0 = %d β = %f" % (minS0, minBeta))
-'''
+
 
 
 print("预测最大感染人数:%d 位置:%d" % (RES[:, 1].max(), np.argmax(RES[:, 1])))
