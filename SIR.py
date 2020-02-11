@@ -61,15 +61,13 @@ if __name__ == "__main__":
     # 数据作图
     fig = pl.figure()
     pl.subplot(111)
-    pl.plot(data["现有感染者"], "-r", label="infected")
-    pl.plot(data["疑似者"], "-g", label="undecided")
-    pl.plot(data["死亡"], "-b", label="death")
-    pl.plot(data["治愈"], "-k", label="healed")
-    pl.plot(data["现有感染者"]-data["现有感染者"].shift(1), "-y", label="increase")
+    pl.plot(data["死亡"], "-k", label="death")
+    pl.plot(data["治愈"], "-g", label="healed")
+    pl.plot(data["感染者"], "-r", label="infectious")
     pl.legend(loc=0)
-    pl.title("real data")
-    pl.xlabel("Time")
-    pl.ylabel("Infectious Susceptibles")
+    pl.title("real data(begin with 2020-1-10)")
+    pl.xlabel("Index")
+    pl.ylabel("Infectious")
     pl.savefig("realdata.png")
 '''
     # # 计算β值，用确诊病例除以密切接触者人数
